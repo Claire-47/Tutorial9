@@ -1,61 +1,31 @@
 ---
-title: "Tutorial 9"
-author: "XXXX"
-output:
-  pdf_document:
-    citation_package: natbib
-    highlight: tango
-    number_sections: yes
-    toc: yes
-    toc_depth: 2
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '2'
-bibliography: references.bib 
-biblio-style: dinat
-subtitle: Team name
-header-includes:
-- \usepackage{titling}
-- \usepackage{float}
-- \pretitle{\begin{center} 
-  \includegraphics[width=5in,height=6in]{Images/sam-albury-oA7MMRxTVzo-unsplash.jpg}\LARGE\\}
-- \posttitle{\end{center}}
-- \usepackage{fontawesome}
-- \usepackage[most]{tcolorbox}
-- \usepackage{xcolor}
-- \usepackage{sectsty}
-- \sectionfont{\color{blue}}
-- \usepackage{verbatim}
-- \usepackage{fancyhdr}
-- \pagestyle{fancy}
+title: "Tute9Group2"
+author: "Harsh"
+date: "2023-05-03"
+output: html_document
 ---
 
-\clearpage
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-# Section 1
+# Introduction:
 
+Crime can be defined as an act or behavior that violates a law and is punishable by the government. A person who commits a crime not only affects himself/herself but also the society and the community as a whole. There are various degrees of crime that range from minor offences such as stealing or traffic violations to major ones such as murder and assault. In this report, an in depth analysis is made regarding number of incidents recorded per the type of crime for the time frame of December 2019. The aim is to find out how each crime fares against each other and which one is the highest.    
 
-\clearpage
+# Analysis
 
-# Section 2
+```{r}
+library(tidyverse)
+data <- read_csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+data <- data %>% group_by(`Offence Division`) %>% summarise(total = sum(`Incidents Recorded`))
+ggplot(data) + geom_col(aes(x = `Offence Division`, y = total))+ coord_flip()
+```
 
+The following analysis shows that B Property and deception offences is the highest.
 
-\clearpage
-
-# Section 3
-
-
-\clearpage
-
-# Section 4
-
-
-\clearpage
-
-# Citation examples
-
-[More styles for natbib here](https://www.overleaf.com/learn/latex/Natbib_bibliography_styles)
-
-
- @BC64 and this is another article about COVID @bai2020presumed and I can also cite R packages as follows @ggplot2
+# Conclusion
+```{r}
+data <- read.csv("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+```
+Data is readable and anaylsis are good
