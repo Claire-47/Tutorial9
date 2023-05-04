@@ -1,6 +1,6 @@
 ---
 title: "Tute9Group2"
-author: "Harsh"
+author: "claire"
 date: "2023-05-03"
 output: html_document
 ---
